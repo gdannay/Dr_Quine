@@ -1,25 +1,48 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gdannay <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2018/04/18 10:59:45 by gdannay           #+#    #+#              #
+#    Updated: 2018/04/18 11:11:04 by gdannay          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME_COLLEEN	=	Colleen
+
+NAME_GRACE		=	Grace
 
 SRCS_COLLEEN	=	Colleen.c
 
+SRCS_GRACE		=	Grace.c
+
 OBJS_COLLEEN	=	$(SRCS_COLLEEN:.c=.o)
 
-CC		=	clang
+OBJS_GRACE		=	$(SRCS_GRACE:.c=.o)
 
-CFLAGS		=	-Wall -Werror -Wextra
+CC				=	clang
 
-all		:	$(NAME_COLLEEN)
+CFLAGS			=	-Wall -Werror -Wextra
+
+all				:	$(NAME_COLLEEN) $(NAME_GRACE)
 
 $(NAME_COLLEEN)	:	$(OBJS_COLLEEN)
-			$(CC) $(OBJS_COLLEEN) -o $(NAME_COLLEEN)
+					$(CC) $(OBJS_COLLEEN) -o $(NAME_COLLEEN)
 
-%.c		:	%.o
-			$(CC) -o $@ -c $< $(CFLAGS)
+$(NAME_GRACE)	:	$(OBJS_GRACE)
+					$(CC) $(OBJS_GRACE) -o $(NAME_GRACE)
 
-clean		:
-			rm -rf $(OBJS_COLLEEN)
+%.o				:	%.c
+					$(CC) -o $@ -c $< $(CFLAGS)
 
-fclean		:	clean
-			rm -rf $(NAME_COLLEEN)
+clean			:
+					rm -rf $(OBJS_COLLEEN)
+					rm -rf $(OBJS_GRACE)
 
-re		:	fclean all
+fclean			:	clean
+					rm -rf $(NAME_COLLEEN)
+					rm -rf $(NAME_GRACE)
+
+re				:	fclean all
