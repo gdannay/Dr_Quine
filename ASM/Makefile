@@ -6,7 +6,7 @@
 #    By: gdannay <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/18 10:59:45 by gdannay           #+#    #+#              #
-#    Updated: 2018/04/18 18:25:46 by gdannay          ###   ########.fr        #
+#    Updated: 2018/04/19 11:28:46 by gdannay          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ CFLAGS			=	-f macho64
 all				:	$(NAME_COLLEEN) $(NAME_GRACE) $(NAME_SULLY)
 
 $(NAME_COLLEEN)	:	$(OBJS_COLLEEN)
-					$(CC) $(OBJS_COLLEEN) -o $(NAME_COLLEEN)
+					$(CC) $(OBJS_COLLEEN) -g3 -fsanitize=address -o $(NAME_COLLEEN)
 
 $(NAME_GRACE)	:	$(OBJS_GRACE)
 					$(CC) $(OBJS_GRACE) -o $(NAME_GRACE)
